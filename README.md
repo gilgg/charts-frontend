@@ -15,7 +15,7 @@ Charts app lets you see charts and add types.
 
 > **You can take a look at the backend repo [here](https://github.com/gilgg/charts-backend)**
 
-> **Go to [Website](https://gil-transactions-viewer.netlify.app/)**
+> **Go to [Website](https://gil-charts.netlify.app/)**
 
 <br />
 

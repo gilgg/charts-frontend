@@ -14,11 +14,19 @@ const reducer = (state = initState, action) => {
         currentTerms: getTypeTerms(action.termsRaw, 1),
       };
     case "ADD":
-      const newTypes = [...state.typesArr, action.newType];
+      const newTypesArr = state.typesArr.map((doc) => {
+        if (doc.type === action.newDoc.type) {
+          return {
+            type: doc.type,
+            terms: doc.terms.concat(action.newDoc.terms),
+          };
+        }
+        return doc;
+      });
 
       return {
-        typesArr: newTypes,
-        currentTerms: getTypeTerms(state.typesArr, 1),
+        typesArr: newTypesArr,
+        currentTerms: getTypeTerms(newTypesArr, 1),
       };
     case "CHANGE_SELECTED_TYPE":
       return {

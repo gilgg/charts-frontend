@@ -7,7 +7,7 @@ const Header = () => {
   const typesArr = useSelector((state) => state.typesArr);
   const dispatch = useDispatch();
 
-  const onClickHandler = (e) => {
+  const onClickHandler = async (e) => {
     e.preventDefault();
     dispatch({
       type: "CHANGE_SELECTED_TYPE",

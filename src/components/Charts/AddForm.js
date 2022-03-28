@@ -7,6 +7,7 @@ import axios from "axios";
 const AddForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const typeRef = useRef();
   const addRef = useRef();
   const typesArr = useSelector((state) => state.typesArr);
 
@@ -17,16 +18,23 @@ const AddForm = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    let type = parseInt(typeRef.current.value);
     const termsRaw = addRef.current.value;
-    const newType = {
-      type: typesArr.length + 1,
+
+    if(!type) { // in case the type field was left empty
+      type = typesArr.length + 1;
+    }
+    
+    const newDoc = {
+      type,
       terms: termsRaw.replace(" ", "").split(","),
     };
+    typeRef.current.value = "";
     addRef.current.value = "";
     /////////////// DB version ///////////////
-    await axios.post(`${process.env.REACT_APP_API_URL}/add`, newType);
+    await axios.post(`${process.env.REACT_APP_API_URL}/add`, newDoc);
     //////////////////////////////////////////
-    dispatch({ type: "ADD", newType });
+    dispatch({ type: "ADD", newDoc });
     history.push("/");
   };
 
@@ -36,6 +44,11 @@ const AddForm = () => {
         Return to Charts
       </button>
       <form className="add-form" onSubmit={onSubmitHandler}>
+        <input
+          type="text"
+          placeholder="Enter the type number (Optional)"
+          ref={typeRef}
+        />
         <input type="text" placeholder="Enter the terms..." ref={addRef} />
         <button className="add-type-btn">Add type</button>
       </form>
