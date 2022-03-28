@@ -31,4 +31,4 @@ const getTermsForChart = (termsObj) => {
   return termsWithCount;
 };
 
-export { getTypeTerms, getTermsForChart };
+export { getTypeTerms };

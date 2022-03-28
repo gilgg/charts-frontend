@@ -1,7 +1,7 @@
 import "./Charts.scss";
 import { useSelector } from "react-redux";
-import { BarChart, Bar, XAxis, YAxis } from "recharts";
 import { useHistory } from "react-router-dom";
+import { BarChart, Bar, XAxis, YAxis } from "recharts";
 
 const Charts = () => {
   const history = useHistory();

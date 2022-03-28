@@ -1,8 +1,8 @@
 import "./App.scss";
 import { Route, Switch, Redirect } from "react-router-dom";
+import useFetch from "./hooks/useFetch";
 import HomePage from "./components/Pages/HomePage";
 import AddPage from "./components/Pages/AddPage";
-import useFetch from "./hooks/useFetch";
 
 const App = () => {
   useFetch();
