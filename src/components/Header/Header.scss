@@ -1,0 +1,32 @@
+.header {
+  text-align: center;
+
+  &-label {
+    margin-right: 1rem;
+    font-size: 2rem;
+  }
+
+  &-select {
+    margin-right: 2rem;
+    padding: 0.3rem 3rem;
+    font-size: 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+  }
+
+  &-btn {
+    padding: 0.4rem 3rem;
+    font-size: 2rem;
+    color: #fff;
+    background-color: rgb(32, 32, 185);
+    border: none;
+    border-radius: 4px;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: navy;
+    }
+  }
+}

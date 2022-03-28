@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import { Route, Switch, Redirect } from "react-router-dom";
+import HomePage from "./components/Pages/HomePage";
+import AddPage from "./components/Pages/AddPage";
+import useFetch from "./hooks/useFetch";
 
-function App() {
+const App = () => {
+  useFetch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Switch>
+        <Route path="/" exact>
+          <HomePage />
+        </Route>
+        <Route path="/add" exact>
+          <AddPage />
+        </Route>
+        <Route path="*">
+          <Redirect to="/" />
+        </Route>
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
